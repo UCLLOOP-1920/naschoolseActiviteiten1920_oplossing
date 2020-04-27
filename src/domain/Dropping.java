@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Dropping extends ActiviteitMetInschrijving implements HeeftMinimumleeftijd {
     private String startplaats;
-    private static final int minimumLeeftijd = 10;
+    private static final int MINIMUM_LEEFTIJD = 10;
 
     public Dropping(String naam, LocalDate datum, String startplaats) {
         super(naam, datum);
@@ -13,6 +13,6 @@ public class Dropping extends ActiviteitMetInschrijving implements HeeftMinimuml
 
     @Override
     public int getMinimumLeeftijd() {
-        return minimumLeeftijd;
+        return MINIMUM_LEEFTIJD;
     }
 }
