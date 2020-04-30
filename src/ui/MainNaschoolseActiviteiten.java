@@ -76,5 +76,12 @@ public class MainNaschoolseActiviteiten {
             System.out.println(a+"\n");
         }
 
+        // Verwijder alle activiteiten van 1 juni
+        System.out.println("*********************");
+        System.out.println("Aantal activiteiten voor verwijderen: "+naschoolseActiviteiten.geefAantalActiviteiten());
+        naschoolseActiviteiten.verwijderActiviteitenOpDatum(juni01);
+        System.out.println("Aantal activiteiten na verwijderen: "+naschoolseActiviteiten.geefAantalActiviteiten());
+
+
     }
 }

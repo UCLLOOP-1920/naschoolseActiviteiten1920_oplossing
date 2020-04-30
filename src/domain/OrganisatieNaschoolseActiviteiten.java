@@ -2,6 +2,7 @@ package domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class OrganisatieNaschoolseActiviteiten {
@@ -45,6 +46,19 @@ public class OrganisatieNaschoolseActiviteiten {
         return wedstrijden;
     }
 
+    public List<Activiteit> verwijderActiviteitenOpDatum(LocalDate datum) {
+        List<Activiteit> verwijderdeActiviteiten = new ArrayList<>();
+        Iterator<Activiteit> iterator = activiteiten.iterator();
+        while (iterator.hasNext()) {
+            Activiteit a = iterator.next();
+            if (a.getDatum().equals(datum)) {
+                verwijderdeActiviteiten.add(a);
+                iterator.remove();
+            }
+        }
+        return verwijderdeActiviteiten;
+    }
+
     public List<Activiteit> geefActiviteitenVoorPersoonOpDag(Persoon persoon, LocalDate dag) {
         if (persoon == null || dag == null)
             throw new DomainException("Geen geldige invoer");
@@ -55,5 +69,9 @@ public class OrganisatieNaschoolseActiviteiten {
                 activiteiten.add(a);
         }
         return activiteiten;
+    }
+
+    public int geefAantalActiviteiten(){
+        return activiteiten.size();
     }
 }
